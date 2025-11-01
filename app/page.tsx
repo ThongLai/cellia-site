@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic'; // For loading with options (used on `FloatingParticles`)
+
 import { motion } from 'framer-motion';
 import {
   Download,
@@ -16,8 +18,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+
+
 import AnimatedSection from '@/components/AnimatedSection';
-import FloatingParticles from '@/components/FloatingParticles';
+
+const FloatingParticles = dynamic(
+  () => import('@/components/FloatingParticles'),
+  { ssr: false }  // ← Skip server-side rendering for this component (because the bubble should be rendered only on client side)
+);
+
 import { supabase, Profile, Project } from '@/lib/supabase';
 import { useDropzone } from 'react-dropzone';
 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const particles = Array.from({ length: 20 }, (_, i) => ({
   id: i,
-  size: Math.random() * 4 + 2,
+  size: Math.random() * 40 + 20,
   x: Math.random() * 100,
   y: Math.random() * 100,
   duration: Math.random() * 10 + 10,
@@ -27,7 +27,7 @@ export default function FloatingParticles() {
           animate={{
             y: [0, -30, 0],
             x: [0, 15, 0],
-            opacity: [0.2, 0.5, 0.2],
+            opacity: [0.1, 0.7, 0.1],
           }}
           transition={{
             duration: particle.duration,
